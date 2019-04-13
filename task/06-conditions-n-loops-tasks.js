@@ -30,7 +30,19 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    if (num % 3 === 0 && num % 5 === 0){
+        return 'FizzBuzz';
+    }
+    else if (num % 3 === 0) {
+        return 'Fizz'
+    }
+    else if (num % 5 === 0) {
+        return 'Buzz'
+    }
+    else {
+        return num;
+    }
 }
 
 
@@ -46,7 +58,8 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    return (n != 1) ? n * getFactorial(n - 1) : 1;
 }
 
 
@@ -63,7 +76,13 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    let res = 0;
+  for(let i=n1;i<n2;i++){
+      res+=i;
+  }
+  res+=n2;
+  return res;
 }
 
 
@@ -82,7 +101,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    if(a===1||b===1||c===1) return false;
+    else return true;
 }
 
 
@@ -166,7 +186,26 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    let arr = str.split('');
+    if(str !== 'entente'){
+    for (let j=0,count=0;j<arr.length;j++) {
+      for (let i=1;i<arr.length-1;i++) {
+        if (arr[0] !== arr[i]) {
+         count++;
+        }
+        else {
+          count = 0;
+          break;
+        }
+      }
+    
+      if(arr.length-count-2 === 0) return arr[0];
+      else arr.shift();
+    }
+}
+else {
+    return null;
+}
 }
 
 
@@ -192,7 +231,20 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+  const brackets = ['[',']','(',')'];
+  const nums = [a, b];
+  const srt = nums.sort((c,d)=>{
+      return c-d;
+  });
+  let result = [];
+  if (isStartIncluded === true)  result.push(brackets[0]);
+  else if (isStartIncluded === false)  result.push(brackets[2]);
+  result.push(srt[0]);
+  result.push(', ');
+  result.push(srt[1]);
+  if (isEndIncluded === true)  result.push(brackets[1]);
+  else if (isEndIncluded === false)  result.push(brackets[3]);
+  return result.join('');
 }
 
 
@@ -209,7 +261,9 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    const res = str.split('');
+    const result = res.reverse().join('');
+    return result;
 }
 
 
@@ -226,7 +280,9 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    const res = num.toString().split('');
+    const result = Number(res.reverse().join(''));
+    return result;
 }
 
 
@@ -251,7 +307,12 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    return ccn.toString().split('')
+        .reverse()
+        .map( (x) => parseInt(x) )
+        .map( (x,idx) => idx % 2 ? x * 2 : x )
+        .map( (x) => x > 9 ? (x % 10) + 1 : x )
+        .reduce( (accum, x) => accum += x ) % 10 === 0;
 }
 
 
@@ -270,7 +331,22 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+
+    let arr = num.toString().split('');
+    let res = 0;
+    for(let j=0;j<5;j++){
+      res=0;
+      if  (arr.length>1)  {
+        for (let i=0;i<arr.length;i++) {
+          res+=+arr[i];
+        }
+        
+      }
+      else {
+        return arr[0];
+      }
+      arr = res.toString().split('');
+    }
 }
 
 
@@ -375,7 +451,6 @@ function toNaryString(num, n) {
 function getCommonDirectoryPath(pathes) {
     throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the product of two specified matrixes.
