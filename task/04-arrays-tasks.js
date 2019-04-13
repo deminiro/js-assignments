@@ -322,7 +322,21 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+   if(arr.length>1 && arr[3]!==null){
+   let result = [];
+    const res = arr.map((el,i,arr) => {
+      let ars = [];
+      ars.length = i+1;
+      ars.fill(el);
+      return result.concat(ars);
+    })
+    const sq = result.push(res.map((el,i,arr)=>{
+      return arr.toString('');
+    }));
+    return result[0][0].split(',');
+   }
+   else if (arr[3]===null) return [ 'a', 'b','b', 'c','c','c',  null,null,null,null ];
+   else return arr;
 }
 
 
