@@ -23,17 +23,16 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-//    class Us { 
-//     constructor(width,heigth){
-//         this.width = width;
-//         this.height = height;
-//     }
+    const obj = {
+        width:width,
+        height:height,
+        getArea: function (){
+            return width*height;
+        }
+    }
     
-//     getArea  () {
-//         return width * height;
-//     }
-//    }
-throw new Error('Not implemented');
+    return obj;
+// throw new Error('Not implemented');
 }
 
 
@@ -65,7 +64,10 @@ function getJSON(obj) {
  */
 function fromJSON(proto, json) {
     throw new Error('Not implemented');
-    
+    // const res = JSON.parse(json, function(key, value) {
+    //     return value;
+    //   });
+    //   return res;
 }
 
 
