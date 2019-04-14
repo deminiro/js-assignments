@@ -49,6 +49,59 @@ function parseDataFromIso8601(value) {
  * @return {bool}
  *
  * @example :
+'use strict';
+
+/********************************************************************************************
+ *                                                                                          *
+ * Plese read the following tutorial before implementing tasks:                             *
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates#Date_object
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date    *
+ *                                                                                          *
+ ********************************************************************************************/
+
+
+/**
+ * Parses a rfc2822 string date representation into date value
+ * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
+ *
+ * @param {string} value
+ * @return {date}
+ *
+ * @example:
+ *    'December 17, 1995 03:24:00'    => Date()
+ *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
+ *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
+ */
+function parseDataFromRfc2822(value) {
+   const ds = new Date(value);
+   return ds;
+}
+
+/**
+ * Parses an ISO 8601 string date representation into date value
+ * For ISO 8601 date specification refer to : https://en.wikipedia.org/wiki/ISO_8601
+ *
+ * @param {string} value
+ * @return {date}
+ *
+ * @example :
+ *    '2016-01-19T16:07:37+00:00'    => Date()
+ *    '2016-01-19T08:07:37Z' => Date()
+ */
+function parseDataFromIso8601(value) {
+   const ds = new Date(value);
+   return ds;
+}
+
+
+/**
+ * Returns true if specified date is leap year and false otherwise
+ * Please find algorithm here: https://en.wikipedia.org/wiki/Leap_year#Algorithm
+ *
+ * @param {date} date
+ * @return {bool}
+ *
+ * @example :
  *    Date(1900,1,1)    => false
  *    Date(2000,1,1)    => true
  *    Date(2001,1,1)    => false
@@ -56,7 +109,8 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-   throw new Error('Not implemented');
+    throw new Error('Not implemented');
+   
 }
 
 
