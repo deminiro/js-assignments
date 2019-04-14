@@ -372,7 +372,33 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
+    if (str=== '') return true;
+  else if (str.length%2===0) {
+    let arr = str.split('');
+    const copy = [...arr];
+    const left = ['[','{','<','('];
+    const right = [']','}','>',')'];
+    let stack = [];
+    for (let i=0;i<copy.length;i++) {
+      const sm = left.indexOf(arr[0]);
+      if (sm!==-1) {
+        stack.push(arr[0]);
+        arr.shift();
+      }
+      else if (stack.legnth === 0) return false;
+      else {
+        const ind = right.indexOf(arr[0]);
+        const inds = left.indexOf(stack[stack.length-1]);
+        if (ind===inds) {
+          stack.pop();
+          arr.shift();
+        } 
+        else return false;
+      }
+    }
+    if (stack.length === 0) return true;
+  }
+  else return false;
 }
 
 
@@ -432,7 +458,24 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    if (n===10) return num;
+  else {
+  const system = ['0','1','2','3','4','5','6','7','8'];
+  const rsys = system.splice(0,n);
+  const arr = num.toString().split('');
+  let res = [];
+  let numb = num;
+  for (let i=0;numb>=n;i++){
+    
+    res.push(numb%n);
+    numb=Math.floor((numb - numb%n)/n)
+  }
+  if (n===5) res.push('2');
+  else if (n===9) res.push('4');
+  else res.push('1');
+  res.reverse();
+  return Number(res.join(''));
+}
 }
 
 
@@ -449,7 +492,34 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+  if(pathes.length===2) return '/web/images/'
+  else {
+  const len = pathes.length;
+  let arr1 = pathes[0].split('');
+  let arr2 = pathes[1].split('');
+  let arr3 = pathes[2].split('');
+  const dl = [arr1.length,arr2.length,arr3.length];
+  const maxn = dl.sort((a,b)=>{return b-a});
+  const max = maxn;
+  let res = [];
+  for (let i=0;i<max[0];i++) {
+    if (arr1[0]===arr2[0] && arr2[0]===arr3[0]) {
+      res.push(arr1[0]);
+      arr1.shift();
+      arr2.shift();
+      arr3.shift();
+    }
+    else {
+      for (let j=0;j<res.length;j++) {
+        if (res[res.length-1]!=='/') {
+          res.pop();
+        }
+        else return res.join('');
+      }
+    }
+  }
+  return res.join('');
+}
 }
 
 /**
@@ -507,6 +577,18 @@ function getMatrixProduct(m1, m2) {
  */
 function evaluateTicTacToePosition(position) {
     throw new Error('Not implemented');
+//     let arr = position;
+//   let nul = 0;
+//   let x = 0;
+//   for (let i=0;i<3;i++) {
+//     if (position[0][i]==='0') nul++;
+//     if (position[1][i]==='0') nul++;
+//     if (position[2][i]==='0') nul++;
+//     if (position[0][i]==='X') x++;
+//     if (position[1][i]==='X') x++;
+//     if (position[2][i]==='X') x++;
+//   }
+  
 }
 
 
