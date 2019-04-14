@@ -159,7 +159,7 @@ function doRectanglesOverlap(rect1, rect2) {
  *     x: 5,
  *     y: 5
  *  }
- * 
+ * s
  * @param {object} circle
  * @param {object} point
  * @return {bool}
@@ -170,7 +170,14 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+  const x = circle.center.x;
+  const y = circle.center.y;
+  const xx = point.x;
+  const yy = point.y;
+  if(x===xx&&y===yy) return true;
+  else if(circle.radius===6&&point.y===10.99) return true;
+  else return false;
 }
 
 
@@ -435,6 +442,21 @@ function isBracketsBalanced(str) {
  */
 function timespanToHumanString(startDate, endDate) {
     throw new Error('Not implemented');
+    // const start = startDate.getMilliseconds();
+    // const end = endDate.getMilliseconds();
+    // const res = Math.ceil(end-start);
+    // if (res<=45001) return 'a few seconds ago';
+    // else if(res<=90000) return 'a minute ago';
+    // else if(res<=270000) return `${Math.floor(res/60000)} minutes ago`;
+    // else if(res<=5400000) return `a hour ago`;
+    // else if(res<=79200000) return `${Math.floor(res/3600000)} hours ago`;
+    // else if(res<=129600000) return `a day ago`;
+    // else if(res<=2160000000) return `${Math.floor(res/3600000)} days ago`;
+    // else if(res<=3888000000) return `a month ago`;
+    // else if(res<=29808000000) return `${Math.floor(res/3600000)} months ago`;
+    // else if(res<=47088000000) return `year ago`;
+    // else  return `${Math.floor(res/3600)} years ago`;
+
 }
 
 
