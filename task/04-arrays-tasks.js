@@ -228,19 +228,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-//    let newArr = [];
-//   const res = arr.map(function(el){
-//     return newArr.push(el + '\n');
-//   });
-//   const s = newArr[3].split('');
-//   s.pop();
-//   newArr.pop();
-//   const a = s.join('');
-//   const res1 = newArr[0].concat(newArr[1]);
-//   const res2 = res1.concat(newArr[2]);
-//   const res3 = res2.concat(a);
-//   return res3;
-throw new Error('Not implemented');
+   return arr.join('\n');
 }
 
 /**
@@ -277,14 +265,10 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   // const res = arr.map(function(cur,i,arr) {
-   //    return cur+arr[i];
-   //  });
-   //  const res2 = res.map(function(cur) {
-   //    return Math.floor(cur/2);
-   //  });
-   //  return res2;
-   throw new Error('Not implemented');
+   let res = [];
+   arr.reduce(function(a,b,i) { return res[i] = a+b; },0);
+   return res;
+   //throw new Error('Not implemented');
 }
 
 /**
@@ -414,17 +398,34 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
-   // if('zero')  0;
-   // if('one')  1;
-   // if('two')  2;
-   // if('three')  3;
-   // if('eight')  8;
-   // if('nine')  9;
-   // const res = arr.sort((a,b) =>{
-   //    return a-b;
-   // });
-   // return res;
+  const sqw = arr.map((el,i,arr)=>{
+     if(arr[i] === 'zero') return 0;
+     if(arr[i] === 'one') return 1;
+     if(arr[i] === 'two') return 2;
+     if(arr[i] === 'three') return 3;
+     if(arr[i] === 'four') return 4;
+     if(arr[i] === 'five') return 5;
+     if(arr[i] === 'six') return 6;
+     if(arr[i] === 'seven') return 7;
+     if(arr[i] === 'eight') return 8;
+     if(arr[i] === 'nine') return 9;
+  });
+  const ws = sqw.sort((a,b)=>{
+    return a-b;
+  });
+  const res = ws.map((el,i,arr) =>{
+    if(arr[i] === 0) return 'zero';
+     if(arr[i] === 1) return 'one';
+     if(arr[i] === 2) return 'two';
+     if(arr[i] === 3) return 'three';
+     if(arr[i] === 4) return 'four';
+     if(arr[i] === 5) return 'five';
+     if(arr[i] === 6) return 'six';
+     if(arr[i] === 7) return 'seven';
+     if(arr[i] === 8) return 'eight';
+     if(arr[i] === 9) return 'nine';
+  });
+  return res;
 }
 
 /** 
@@ -562,7 +563,17 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+  let arr = [];
+  arr.length = n;
+  arr.fill(0,0);
+  const res = arr.map((el,i,arr)=>{
+    let ar = [];
+    ar.length = n;
+    ar.fill(0,0);
+    ar.splice(i,1,1);
+    return ar;
+  });
+  return res;
 }
 
 /**
@@ -637,6 +648,11 @@ function distinct(arr) {
  */
 function group(array, keySelector, valueSelector) {
    throw new Error('Not implemented');
+   // let sesa = new Map([array]);
+   // const res = sesa.map(function(el,i,arr){
+   //    return `${keySelector}:${valueSelector}`;
+   // });
+   // return res;
 }
 
 
@@ -652,7 +668,9 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+   //  const s = arr.filter(childrenSelector);
+   //  return s;
+   throw new Error('Not implemented');
 }
 
 
@@ -669,12 +687,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
-   // let num = [];
-   // const st = indexes.map((el)=>{
-   //    return num.push([el]);
-   // });
-
+   throw new Error('Not implemented');
 }
 
 
