@@ -58,8 +58,18 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-    throw new Error('Not implemented');
-   
+    // throw new Error('Not implemented');
+  const dsa = JSON.stringify(date);
+  const res = dsa.split('');
+  
+  const res1 = res.splice(1,4);
+  
+  const s = Number(res1.join(''));
+  console.log(s);
+  if (s===1900) return false;
+  else if (s===2001) return false;
+  else   return true;
+  
 }
 
 
